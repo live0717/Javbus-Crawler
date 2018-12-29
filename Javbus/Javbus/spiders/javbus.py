@@ -13,7 +13,7 @@ class JavbusSpider(scrapy.Spider):
     allowed_domains = ['javbus.pw',"javbus.org","javbus.com"]
 
     def start_requests(self):
-        urls = ["https://www.javbus.org/actresses"]
+        urls = ["https://www.javbus.org/actresses","https://www.javbus.com","https://www.javbus.com/uncensored","https://www.javbus.org/","https://www.javbus.com/actresses","https://www.javbus.com/uncensored/actresses"]
         for url in urls:
             #因为很多作品在有码和无码里没有，因此需要根据女星的作品来爬取所有的番号
             if "actresses" not in url:
