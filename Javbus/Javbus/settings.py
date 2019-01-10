@@ -23,7 +23,7 @@ NEWSPIDER_MODULE = 'Javbus.spiders'
 ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-#CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = 64
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
@@ -67,7 +67,14 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'Javbus.pipelines.MongoDBPipeline': 300,
+    #javvus爬虫请打开这个
+   # 'Javbus.pipelines.MongoDBPipeline': 300,
+
+    #短视频爬虫请打开下面三个
+
+    'Javbus.pipelines.KuaiyaojingPipeline': 300,
+    'scrapy.pipelines.files.FilesPipeline': 1,
+    'Javbus.pipelines.VideoPipeline': 20,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -94,3 +101,8 @@ MONGODB_SERVER = "127.0.0.1"
 MONGODB_PORT = 27017
 MONGODB_DB = "fuli"
 MONGODB_COLLECTION = "javbus"
+MONGODB_COLLECTION2 = "kuaiyaojing"
+
+
+#视频下载位置
+FILES_STORE = 'D:\Video'
